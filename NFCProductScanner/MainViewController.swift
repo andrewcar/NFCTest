@@ -41,11 +41,29 @@ class MainViewController: UIViewController {
     }
 }
 
+// MARK: - NFCVASReaderSessionDelegate
+
+//extension MainViewController: NFCVASReaderSessionDelegate {
+//
+//    @available(iOS 13.0, *)
+//    func readerSession(_ session: NFCVASReaderSession, didReceive responses: [NFCVASResponse]) {
+//
+//        guard let vasResponse = responses.first else { return }
+//
+//        print("VAS RESPONSE: \(vasResponse)")
+//    }
+//
+//    @available(iOS 13.0, *)
+//    func readerSession(_ session: NFCVASReaderSession, didInvalidateWithError error: Error) {
+//        print("VAS ERROR: \(error.localizedDescription)")
+//    }
+//}
+
 // MARK: - FCNDEFReaderSessionDelegate
 
 extension MainViewController: NFCNDEFReaderSessionDelegate {
 
-    func readerSessionDidBecomeActive(_ session: NFCNDEFReaderSession) {}
+    @nonobjc func readerSessionDidBecomeActive(_ session: NFCNDEFReaderSession) {}
 
     func readerSession(_ session: NFCNDEFReaderSession, didDetectNDEFs messages: [NFCNDEFMessage]) {
 
